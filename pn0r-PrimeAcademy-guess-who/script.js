@@ -15,7 +15,7 @@ function onReady() {
 var people = [
     { 
       number: 1,
-      name: 'paul',
+      name: 'Paul',
     },
     {
       number: 2,
@@ -79,14 +79,19 @@ function generate() {
 
 function randomNumber(min , max){
     display = Math.floor(Math.random() * (1 + max - min) + min);
-
+    for (individual of people){
+      if(individual.number == display){
+        console.log(individual.name)
+        person = individual.name
+      }
+    }
 }
 
 function render() {
     $('#rdm').empty();
     clearForm();
     $('#rdm').append(`
-    <div>${display}</div>
+    <div>${person}</div>
     `)
 }
 
