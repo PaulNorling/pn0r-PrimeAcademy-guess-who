@@ -16,37 +16,19 @@ var people = [
     { 
       number: 1,
       name: 'paul',
-      githubUsername: 'devjanaprime'
     },
     {
       number: 2,
       name: 'Dylan',
-      githubUsername: 'DoctorHowser'
     },
     {
       number: 3,
       name: 'Jared',
-      githubUsername: 'matthew-black'
-    },
-    // {
-    //   name: 'Kris',
-    //   githubUsername: 'kdszafranski'
-    // },
-    // {
-    //   name: 'Edan',
-    //   githubUsername: 'eschwartz'
-    // },
-    // {
-    //   name: 'Liz',
-    //   githubUsername: 'emkerber'
-    // },
-    // {
-    //   name: 'Chris',
-    //   githubUsername: 'christopher-black'
-    // },
+    },    
 ];
   
 function norling()  {
+    render();
      console.log('norling')
     // render();
     if(display === people[0].number){
@@ -54,10 +36,13 @@ function norling()  {
         $('.correct').append(`
         <div class="wow">Correct!</div>
         `);
-    }else $('footer').addClass('.inCorrect');
+    }else  $('.correct').append(`
+    <div class="inCorrect">Wrong Try Again</div>
+    `);
 }
 
 function roets()  {
+    render();
      console.log('Roets')
     // render();
     if(display === people[1].number){
@@ -66,12 +51,12 @@ function roets()  {
         <div class="wow">Correct!</div>
         `);
     }else $('.correct').append(`
-    <div class="inCorrect">Wrong</div>
+    <div class="inCorrect">Wrong Try Again</div>
     `);
 }
 
 function lindquist()  {
-    
+    render();
     // console.log('Lindquist')
     // render();
     if(display === people[2].number){
@@ -79,7 +64,9 @@ function lindquist()  {
         $('.correct').append(`
         <div class="wow">Correct!</div>
         `);
-    }else $('footer').addClass('.inCorrect');
+    }else $('.correct').append(`
+    <div class="inCorrect">Wrong Try Again</div>
+    `);
 }
 
 function generate() {
@@ -96,6 +83,7 @@ function randomNumber(min , max){
 }
 
 function render() {
+    $('#rdm').empty();
     clearForm();
     $('#rdm').append(`
     <div>${display}</div>
